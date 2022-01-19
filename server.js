@@ -34,7 +34,7 @@ app.post('/api/todos', async (req, res) => {
         // It also gives us an array with 2 elements. The first one is an object where we have the informationwe need
         // second one is null or information about the fields of that row
         const [todosResult] = await connection.query(getTodoById, [result.insertId]);
-        res.json(todosResult);
+        res.json(todosResult[0]);
     } catch (e) {
         // if there is an error return it as a 400 error
         res.status(400).json(e);
